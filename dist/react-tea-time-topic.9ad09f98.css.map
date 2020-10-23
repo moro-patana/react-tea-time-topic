@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA","file":"react-tea-time-topic.9ad09f98.css","sourceRoot":"..","sourcesContent":[".container {\r\n    background-color: gainsboro;\r\n    border-radius: 16px;\r\n    padding: 1rem;\r\n    margin-top: 1rem;\r\n}"]}

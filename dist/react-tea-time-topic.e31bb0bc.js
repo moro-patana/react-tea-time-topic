@@ -29786,12 +29786,16 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function TopicList() {
+function TopicList({
+  topic
+}) {
   const [upvotedCount, setUpvotedCount] = (0, _react.useState)(0);
   const [downvotedCount, setDownvotedCount] = (0, _react.useState)(0);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "article"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "LoremLoremLoremLoremLorem"), /*#__PURE__*/_react.default.createElement("button", null, "Archieve")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), /*#__PURE__*/_react.default.createElement("button", null, "Archieve")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setUpvotedCount(upvotedCount + 1)
   }, "+")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, downvotedCount), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setDownvotedCount(downvotedCount + 1)
@@ -29818,17 +29822,16 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const TopicData = "https://gist.githubusercontent.com/Pinois/93afbc4a061352a0c70331ca4a16bb99/raw/6da767327041de13693181c2cb09459b0a3657a1/topics.json";
+const url = "https://gist.githubusercontent.com/Pinois/93afbc4a061352a0c70331ca4a16bb99/raw/6da767327041de13693181c2cb09459b0a3657a1/topics.json";
 
 function App() {
   const [topics, setTopics] = (0, _react.useState)([]);
 
   const getTopic = async () => {
     try {
-      const res = await fetch(TopicData);
+      const res = await fetch(url);
       const topics = await res.json();
-      console.log(topics);
-      setTopics(topics.results);
+      setTopics(topics);
     } catch (e) {
       console.error(e);
     }
@@ -29837,7 +29840,10 @@ function App() {
   (0, _react.useEffect)(() => {
     getTopic();
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_TopicList.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", null, topics.map(topic => /*#__PURE__*/_react.default.createElement(_TopicList.default, {
+    key: topic.id,
+    topic: topic
+  })));
 }
 
 var _default = App;

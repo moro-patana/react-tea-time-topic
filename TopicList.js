@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 
 
-function TopicList() {
+function TopicList({ topic }) {
     const [upvotedCount, setUpvotedCount] = useState(0)
     const [downvotedCount, setDownvotedCount] = useState(0)
     return (
-        <div>
+        <div className="container">
             <div className="article">
-                <p>LoremLoremLoremLoremLorem</p>
+                <p>{topic.title}</p>
                 <button>Archieve</button>
             </div>
             <div>
