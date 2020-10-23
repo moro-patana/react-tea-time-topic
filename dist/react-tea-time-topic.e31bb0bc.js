@@ -29795,11 +29795,19 @@ function TopicList({
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "article"
-  }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), /*#__PURE__*/_react.default.createElement("button", null, "Archieve")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), /*#__PURE__*/_react.default.createElement("button", {
+    className: "archieve"
+  }, "Archieve")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "vote"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "upvote"
+  }, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setUpvotedCount(upvotedCount + 1)
-  }, "+")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, downvotedCount), /*#__PURE__*/_react.default.createElement("button", {
+  }, "+")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "count-vote"
+  }, /*#__PURE__*/_react.default.createElement("p", null, downvotedCount), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setDownvotedCount(downvotedCount + 1)
-  }, "+")));
+  }, "+"))));
 }
 
 var _default = TopicList;

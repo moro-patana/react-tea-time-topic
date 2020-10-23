@@ -4,3 +4,23 @@
     padding: 1rem;
     margin-top: 1rem;
 }
+.article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.archieve {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+}
+.vote {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.count-vote {
+    padding-left: 1rem;
+}
