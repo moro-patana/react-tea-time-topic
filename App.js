@@ -8,6 +8,7 @@ function App() {
         try {
          const res = await fetch(TopicData);
          const topics = await res.json();
+         console.log(topics);
          setTopics(topics.results)
         } catch(e) {
          console.error(e);
