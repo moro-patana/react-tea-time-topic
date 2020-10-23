@@ -8,15 +8,17 @@ function TopicList({ topic }) {
         <div className="container">
             <div className="article">
                 <p>{topic.title}</p>
-                <button>Archieve</button>
+                <button className="archieve">Archieve</button>
             </div>
-            <div>
-                <p>{upvotedCount}</p>
-                <button onClick={() => setUpvotedCount(upvotedCount + 1)}>+</button>
-            </div>
-            <div>
-                <p>{downvotedCount}</p>
-                <button onClick={() => setDownvotedCount(downvotedCount + 1)}>+</button>
+            <div className="vote">
+                <div className="upvote">
+                    <p>{upvotedCount}</p>
+                    <button onClick={() => setUpvotedCount(upvotedCount + 1)}>+</button>
+                </div>
+                <div className="count-vote">
+                    <p>{downvotedCount}</p>
+                    <button onClick={() => setDownvotedCount(downvotedCount + 1)}>+</button>
+                </div>
             </div>
 
         </div>
