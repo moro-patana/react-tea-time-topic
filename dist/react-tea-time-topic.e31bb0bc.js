@@ -29792,6 +29792,7 @@ function DiscussedTopics({
   topic,
   handleRemove
 }) {
+  const discussedOnDate = new Date(Number(topic.discussedOn));
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -29802,7 +29803,9 @@ function DiscussedTopics({
   }, /*#__PURE__*/_react.default.createElement("img", {
     className: "icon",
     src: _deleteIcon.default
-  }))), /*#__PURE__*/_react.default.createElement("p", null, topic.discussedOn));
+  }))), /*#__PURE__*/_react.default.createElement("p", {
+    className: "discussedOnDate"
+  }, "Discussed on ", discussedOnDate.toLocaleDateString()));
 }
 
 var _default = DiscussedTopics;
@@ -29836,7 +29839,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function UndiscussedTopics({
-  topic
+  topic,
+  handleArchieveTopic
 }) {
   const [upvotedCount, setUpvotedCount] = (0, _react.useState)(topic.upvotes);
   const [downvotedCount, setDownvotedCount] = (0, _react.useState)(topic.downvotes);
@@ -29845,7 +29849,8 @@ function UndiscussedTopics({
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "article"
   }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), /*#__PURE__*/_react.default.createElement("button", {
-    className: "archieve"
+    className: "archieve",
+    onClick: () => handleArchieveTopic(topic.id)
   }, /*#__PURE__*/_react.default.createElement("img", {
     className: "icon",
     src: _archieveIcon.default
@@ -29971,12 +29976,18 @@ function App() {
   function handleRemove(id) {
     const filterTopic = topics.filter(topic => topic.id !== id);
     setTopics(filterTopic);
-    console.log(id);
+  }
+
+  function handleArchieveTopic(id) {
+    const archieve = topics.find(topic => topic.id === id);
+    archieve.discussedOn = Date.now();
+    setTopics([...topics]);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_formInput.default, null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "New Topics"), filterUndiscussedTopic.map(topic => /*#__PURE__*/_react.default.createElement(_undiscussedTopics.default, {
     key: topic.id,
-    topic: topic
+    topic: topic,
+    handleArchieveTopic: handleArchieveTopic
   }))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Past Topics"), filterDiscussedTopic.map(topic => /*#__PURE__*/_react.default.createElement(_discussedTopic.default, {
     key: topic.id,
     topic: topic,

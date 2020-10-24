@@ -28,7 +28,11 @@ function App() {
 function handleRemove(id) {
     const filterTopic = topics.filter(topic => topic.id !== id)
     setTopics(filterTopic)
-console.log(id);
+}
+function handleArchieveTopic(id) {
+    const archieve = topics.find(topic => topic.id === id)
+   archieve.discussedOn = Date.now();
+   setTopics([...topics])
 }
     return (
        <div>
@@ -36,7 +40,7 @@ console.log(id);
             <div>
                 <h3>New Topics</h3>
                 {filterUndiscussedTopic.map((topic) => (
-                    <UndiscussedTopics key={topic.id} topic={topic}/>
+                    <UndiscussedTopics key={topic.id} topic={topic} handleArchieveTopic={handleArchieveTopic}/>
             ))}
            </div>
        	<div>
