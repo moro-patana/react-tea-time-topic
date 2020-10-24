@@ -4,7 +4,7 @@ import voteIcon from "./img/vote-icon.svg"
 import unvoteIcon from "./img/unvote-icon.svg"
 
 
-function UndiscussedTopics({topic}) {
+function UndiscussedTopics({topic, handleArchieveTopic}) {
     const [upvotedCount, setUpvotedCount] = useState(topic.upvotes)
     const [downvotedCount, setDownvotedCount] = useState(topic.downvotes)
 
@@ -12,7 +12,7 @@ function UndiscussedTopics({topic}) {
         <div className="container">
         <div className="article">
             <p>{topic.title}</p>
-           <button className="archieve"><img className="icon" src={archieveIcon}/></button>
+           <button className="archieve" onClick={() => handleArchieveTopic(topic.id)}><img className="icon" src={archieveIcon}/></button>
        </div>
        <div className="vote">
            <div className="upvote">
