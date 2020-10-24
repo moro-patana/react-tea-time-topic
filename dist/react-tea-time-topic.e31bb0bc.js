@@ -29772,15 +29772,107 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"img/archieve-icon.svg":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"img/delete-icon.svg":[function(require,module,exports) {
+module.exports = "/delete-icon.c464f2e5.svg";
+},{}],"discussedTopic.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _deleteIcon = _interopRequireDefault(require("./img/delete-icon.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function DiscussedTopics({
+  topic,
+  handleRemove
+}) {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "article"
+  }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), /*#__PURE__*/_react.default.createElement("button", {
+    className: "delete",
+    onClick: () => handleRemove(topic.id)
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "icon",
+    src: _deleteIcon.default
+  }))), /*#__PURE__*/_react.default.createElement("p", null, topic.discussedOn));
+}
+
+var _default = DiscussedTopics;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./img/delete-icon.svg":"img/delete-icon.svg"}],"img/archieve-icon.svg":[function(require,module,exports) {
 module.exports = "/archieve-icon.76163300.svg";
 },{}],"img/vote-icon.svg":[function(require,module,exports) {
 module.exports = "/vote-icon.643ea009.svg";
 },{}],"img/unvote-icon.svg":[function(require,module,exports) {
 module.exports = "/unvote-icon.283acd87.svg";
-},{}],"img/delete-icon.svg":[function(require,module,exports) {
-module.exports = "/delete-icon.c464f2e5.svg";
-},{}],"TopicList.js":[function(require,module,exports) {
+},{}],"undiscussedTopics.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _archieveIcon = _interopRequireDefault(require("./img/archieve-icon.svg"));
+
+var _voteIcon = _interopRequireDefault(require("./img/vote-icon.svg"));
+
+var _unvoteIcon = _interopRequireDefault(require("./img/unvote-icon.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function UndiscussedTopics({
+  topic
+}) {
+  const [upvotedCount, setUpvotedCount] = (0, _react.useState)(topic.upvotes);
+  const [downvotedCount, setDownvotedCount] = (0, _react.useState)(topic.downvotes);
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "article"
+  }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), /*#__PURE__*/_react.default.createElement("button", {
+    className: "archieve"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "icon",
+    src: _archieveIcon.default
+  }))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "vote"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "upvote"
+  }, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn vote-btn",
+    onClick: () => setUpvotedCount(upvotedCount + 1)
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "icon",
+    src: _voteIcon.default
+  }))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "count-vote"
+  }, /*#__PURE__*/_react.default.createElement("p", null, downvotedCount), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn unvote-btn",
+    onClick: () => setDownvotedCount(downvotedCount + 1)
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "icon",
+    src: _unvoteIcon.default
+  })))));
+}
+
+var _default = UndiscussedTopics;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./img/archieve-icon.svg":"img/archieve-icon.svg","./img/vote-icon.svg":"img/vote-icon.svg","./img/unvote-icon.svg":"img/unvote-icon.svg"}],"formInput.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29804,73 +29896,34 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function TopicList({
-  topic
-}) {
-  const [upvotedCount, setUpvotedCount] = (0, _react.useState)(topic.upvotes);
-  const [downvotedCount, setDownvotedCount] = (0, _react.useState)(topic.downvotes);
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "article"
-  }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), topic.discussedOn === "" ? /*#__PURE__*/_react.default.createElement("button", {
-    className: "archieve"
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: "icon",
-    src: _archieveIcon.default
-  })) : /*#__PURE__*/_react.default.createElement("button", {
-    className: "delete"
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: "icon",
-    src: _deleteIcon.default
-  }))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "vote"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "upvote"
-  }, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
-    className: "btn vote-btn",
-    onClick: () => setUpvotedCount(upvotedCount + 1)
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: "icon",
-    src: _voteIcon.default
-  }))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "count-vote"
-  }, /*#__PURE__*/_react.default.createElement("p", null, downvotedCount), /*#__PURE__*/_react.default.createElement("button", {
-    className: "btn unvote-btn",
-    onClick: () => setDownvotedCount(downvotedCount + 1)
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: "icon",
-    src: _unvoteIcon.default
-  })))), topic.discussedOn ? /*#__PURE__*/_react.default.createElement("p", null, topic.discussedOn) : "");
-}
+function FormInput(props) {
+  const [title, setTitle] = (0, _react.useState)("");
+  const [upvotes, setUpvotes] = (0, _react.useState)(0);
+  const [downvotes, setDownvotes] = (0, _react.useState)(0);
 
-var _default = TopicList;
-exports.default = _default;
-},{"react":"node_modules/react/index.js","./img/archieve-icon.svg":"img/archieve-icon.svg","./img/vote-icon.svg":"img/vote-icon.svg","./img/unvote-icon.svg":"img/unvote-icon.svg","./img/delete-icon.svg":"img/delete-icon.svg"}],"formInput.js":[function(require,module,exports) {
-"use strict";
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("submitted");
+  };
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+  const handleChange = e => {};
 
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function FormInput() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    placeholder: "Wrirte your topic idea here"
+    placeholder: "Wrirte your topic idea here",
+    onChange: e => setTitle(e.target.value),
+    name: "title",
+    value: title
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
-    className: "submit-btn"
+    className: "submit-btn",
+    onClick: handleSubmit
   }, "Submit")));
 }
 
 var _default = FormInput;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./img/archieve-icon.svg":"img/archieve-icon.svg","./img/vote-icon.svg":"img/vote-icon.svg","./img/unvote-icon.svg":"img/unvote-icon.svg","./img/delete-icon.svg":"img/delete-icon.svg"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29880,7 +29933,9 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _TopicList = _interopRequireDefault(require("./TopicList.js"));
+var _discussedTopic = _interopRequireDefault(require("./discussedTopic.js"));
+
+var _undiscussedTopics = _interopRequireDefault(require("./undiscussedTopics.js"));
 
 var _formInput = _interopRequireDefault(require("./formInput.js"));
 
@@ -29908,15 +29963,30 @@ function App() {
   (0, _react.useEffect)(() => {
     getTopic();
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_formInput.default, null), /*#__PURE__*/_react.default.createElement("div", null, topics.map(topic => /*#__PURE__*/_react.default.createElement(_TopicList.default, {
+  const filterDiscussedTopic = topics.filter(topic => topic.discussedOn);
+  console.log(filterDiscussedTopic);
+  const filterUndiscussedTopic = topics.filter(topic => !topic.discussedOn);
+  console.log(filterUndiscussedTopic);
+
+  function handleRemove(id) {
+    const filterTopic = topics.filter(topic => topic.id !== id);
+    setTopics(filterTopic);
+    console.log(id);
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_formInput.default, null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "New Topics"), filterUndiscussedTopic.map(topic => /*#__PURE__*/_react.default.createElement(_undiscussedTopics.default, {
     key: topic.id,
     topic: topic
+  }))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Past Topics"), filterDiscussedTopic.map(topic => /*#__PURE__*/_react.default.createElement(_discussedTopic.default, {
+    key: topic.id,
+    topic: topic,
+    handleRemove: handleRemove
   }))));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./TopicList.js":"TopicList.js","./formInput.js":"formInput.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./discussedTopic.js":"discussedTopic.js","./undiscussedTopics.js":"undiscussedTopics.js","./formInput.js":"formInput.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
