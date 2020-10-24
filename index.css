@@ -11,8 +11,13 @@ h1 {
     font-size: 50px;
     color: brown;
 }
+h3 {
+    font-family: monospace;
+    font-size: 30px;
+    color: dimgray;
+}
 .container {
-    background-color: gainsboro;
+    background-color: white;
     border-radius: 16px;
     padding: 1rem;
     margin-top: 1rem;
@@ -69,4 +74,8 @@ input {
 .discussedOnDate {
     text-align: center;
     color: orangered;
+}
+p {
+    margin: 0;
+    padding: 1rem;
 }
