@@ -79,3 +79,9 @@ p {
     margin: 0;
     padding: 1rem;
 }
+@media (min-width: 1114px) {
+    #root {
+        max-width: 1114px;
+        margin: 0 auto;
+    }
+}
