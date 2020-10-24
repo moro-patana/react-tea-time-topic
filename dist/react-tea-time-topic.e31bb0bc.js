@@ -29789,7 +29789,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function TopicList({
   topic
 }) {
-  const [upvotedCount, setUpvotedCount] = (0, _react.useState)(0);
+  const [upvotedCount, setUpvotedCount] = (0, _react.useState)([topic.upvotes]);
   const [downvotedCount, setDownvotedCount] = (0, _react.useState)(0);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
@@ -29801,16 +29801,40 @@ function TopicList({
     className: "vote"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "upvote"
-  }, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, topic.upvotes), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setUpvotedCount(upvotedCount + 1)
   }, "+")), /*#__PURE__*/_react.default.createElement("div", {
     className: "count-vote"
-  }, /*#__PURE__*/_react.default.createElement("p", null, downvotedCount), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, topic.downvotes), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setDownvotedCount(downvotedCount + 1)
   }, "+"))));
 }
 
 var _default = TopicList;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"formInput.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FormInput() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    placeholder: "Wrirte your topic idea here"
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit",
+    className: "submit-btn"
+  }, "Submit")));
+}
+
+var _default = FormInput;
 exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
@@ -29823,6 +29847,8 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 var _TopicList = _interopRequireDefault(require("./TopicList.js"));
+
+var _formInput = _interopRequireDefault(require("./formInput.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29848,15 +29874,15 @@ function App() {
   (0, _react.useEffect)(() => {
     getTopic();
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, topics.map(topic => /*#__PURE__*/_react.default.createElement(_TopicList.default, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_formInput.default, null), /*#__PURE__*/_react.default.createElement("div", null, topics.map(topic => /*#__PURE__*/_react.default.createElement(_TopicList.default, {
     key: topic.id,
     topic: topic
-  })));
+  }))));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./TopicList.js":"TopicList.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./TopicList.js":"TopicList.js","./formInput.js":"formInput.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29896,7 +29922,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59220" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63535" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

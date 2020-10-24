@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 
 function TopicList({ topic }) {
-    const [upvotedCount, setUpvotedCount] = useState(0)
+    const [upvotedCount, setUpvotedCount] = useState([topic.upvotes])
     const [downvotedCount, setDownvotedCount] = useState(0)
     return (
         <div className="container">
@@ -12,11 +12,11 @@ function TopicList({ topic }) {
             </div>
             <div className="vote">
                 <div className="upvote">
-                    <p>{upvotedCount}</p>
+                    <p>{topic.upvotes}</p>
                     <button onClick={() => setUpvotedCount(upvotedCount + 1)}>+</button>
                 </div>
                 <div className="count-vote">
-                    <p>{downvotedCount}</p>
+                    <p>{topic.downvotes}</p>
                     <button onClick={() => setDownvotedCount(downvotedCount + 1)}>+</button>
                 </div>
             </div>
