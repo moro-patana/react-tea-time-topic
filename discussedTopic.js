@@ -3,7 +3,8 @@ import deleteIcon from "./img/delete-icon.svg"
 
 
 function DiscussedTopics({ topic, handleRemove }) {
-    const discussedOnDate = new Date(Number(topic.discussedOn))
+    const discussedOnDate = new Date(Number(topic.discussedOn));
+
     return (
          <div className="container">
              <div className="article">

@@ -29976,9 +29976,12 @@ function App() {
     getTopic();
   }, []);
   const filterDiscussedTopic = topics.filter(topic => topic.discussedOn);
-  console.log(filterDiscussedTopic);
   const filterUndiscussedTopic = topics.filter(topic => !topic.discussedOn);
-  console.log(filterUndiscussedTopic);
+  const sorteTopic = filterUndiscussedTopic.sort((topicsA, topicsB) => {
+    const ratioA = topicsA.upvotes - topicsA.downvotes;
+    const ratioB = topicsB.upvotes - topicsB.downvotes;
+    return ratioB - ratioA;
+  });
 
   function handleRemove(id) {
     const filterTopic = topics.filter(topic => topic.id !== id);
@@ -29994,7 +29997,7 @@ function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_formInput.default, {
     topics: topics,
     setTopics: setTopics
-  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "New Topics"), filterUndiscussedTopic.map(topic => /*#__PURE__*/_react.default.createElement(_undiscussedTopics.default, {
+  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "New Topics"), sorteTopic.map(topic => /*#__PURE__*/_react.default.createElement(_undiscussedTopics.default, {
     key: topic.id,
     topic: topic,
     handleArchieveTopic: handleArchieveTopic

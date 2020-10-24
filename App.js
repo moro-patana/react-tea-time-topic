@@ -20,10 +20,15 @@ function App() {
 }, []) 
 
     const filterDiscussedTopic = topics.filter(topic => topic.discussedOn)
-    console.log(filterDiscussedTopic);
     const filterUndiscussedTopic = topics.filter(topic => !topic.discussedOn)
-    console.log(filterUndiscussedTopic);
+    
 
+  const sorteTopic = filterUndiscussedTopic.sort((topicsA, topicsB) => {
+        const ratioA = topicsA.upvotes - topicsA.downvotes;
+        const ratioB = topicsB.upvotes - topicsB.downvotes;
+        return ratioB - ratioA;
+  });
+ 
 
 function handleRemove(id) {
     const filterTopic = topics.filter(topic => topic.id !== id)
@@ -43,7 +48,7 @@ function handleArchieveTopic(id) {
             />
             <div>
                 <h3>New Topics</h3>
-                {filterUndiscussedTopic.map((topic) => (
+                {sorteTopic.map((topic) => (
                     <UndiscussedTopics key={topic.id} topic={topic} handleArchieveTopic={handleArchieveTopic} />
             ))}
            </div>
