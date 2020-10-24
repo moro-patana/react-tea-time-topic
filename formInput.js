@@ -4,32 +4,34 @@ import voteIcon from "./img/vote-icon.svg"
 import unvoteIcon from "./img/unvote-icon.svg"
 import deleteIcon from "./img/delete-icon.svg"
 
-function FormInput(props) {
+function FormInput({topics, setTopics}) {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+      const newTopic = {
+            title: e.target.title.value,
+            upvotes: 0,
+            downvotes: 0,
+            id: Date.now()
+        }
+        topics.push(newTopic)
+        setTopics([...topics])
+        console.log("submitted");
+    }
+    
     const [title, setTitle] = useState("")
-    const [upvotes, setUpvotes] = useState(0)
-    const [downvotes, setDownvotes] = useState(0)
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("submitted");
-}
-const handleChange = (e) => {
-
-}
     return (
             <div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <input 
                       type="text" 
                       placeholder="Wrirte your topic idea here"
-                      onChange={((e) => setTitle(e.target.value))}
+                    //   onChange={((e) => setTitle(e.target.value))}
                       name="title"
-                      value={title}
+                    //   value={title}
                     />
                     <button 
-                     type="submit" 
-                     className="submit-btn"
-                     onClick={handleSubmit}>
+                     type="submit" className="submit-btn">
                          Submit
                     </button>
                 </form>

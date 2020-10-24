@@ -34,13 +34,17 @@ function handleArchieveTopic(id) {
    archieve.discussedOn = Date.now();
    setTopics([...topics])
 }
+
     return (
        <div>
-            <FormInput/>
+            <FormInput
+            topics={topics}
+            setTopics={setTopics}
+            />
             <div>
                 <h3>New Topics</h3>
                 {filterUndiscussedTopic.map((topic) => (
-                    <UndiscussedTopics key={topic.id} topic={topic} handleArchieveTopic={handleArchieveTopic}/>
+                    <UndiscussedTopics key={topic.id} topic={topic} handleArchieveTopic={handleArchieveTopic} />
             ))}
            </div>
        	<div>

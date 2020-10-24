@@ -29901,28 +29901,35 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function FormInput(props) {
-  const [title, setTitle] = (0, _react.useState)("");
-  const [upvotes, setUpvotes] = (0, _react.useState)(0);
-  const [downvotes, setDownvotes] = (0, _react.useState)(0);
-
+function FormInput({
+  topics,
+  setTopics
+}) {
   const handleSubmit = e => {
     e.preventDefault();
+    const newTopic = {
+      title: e.target.title.value,
+      upvotes: 0,
+      downvotes: 0,
+      id: Date.now()
+    };
+    topics.push(newTopic);
+    setTopics([...topics]);
     console.log("submitted");
   };
 
-  const handleChange = e => {};
-
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("input", {
+  const [title, setTitle] = (0, _react.useState)("");
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    placeholder: "Wrirte your topic idea here",
-    onChange: e => setTitle(e.target.value),
-    name: "title",
-    value: title
+    placeholder: "Wrirte your topic idea here" //   onChange={((e) => setTitle(e.target.value))}
+    ,
+    name: "title" //   value={title}
+
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
-    className: "submit-btn",
-    onClick: handleSubmit
+    className: "submit-btn"
   }, "Submit")));
 }
 
@@ -29984,7 +29991,10 @@ function App() {
     setTopics([...topics]);
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_formInput.default, null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "New Topics"), filterUndiscussedTopic.map(topic => /*#__PURE__*/_react.default.createElement(_undiscussedTopics.default, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_formInput.default, {
+    topics: topics,
+    setTopics: setTopics
+  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "New Topics"), filterUndiscussedTopic.map(topic => /*#__PURE__*/_react.default.createElement(_undiscussedTopics.default, {
     key: topic.id,
     topic: topic,
     handleArchieveTopic: handleArchieveTopic
@@ -30037,7 +30047,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64986" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59670" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
