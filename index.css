@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+    padding: 1rem;
+}
 .container {
     background-color: gainsboro;
     border-radius: 16px;
@@ -23,4 +27,24 @@
 }
 .count-vote {
     padding-left: 1rem;
+}
+form {
+    background-color: aliceblue;
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+input {
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+}
+.submit-btn {
+    margin-left: 1rem;
+    width: 100px;
+    border: none;
+    border-radius: 15px;
+    background-color: orange;
 }
