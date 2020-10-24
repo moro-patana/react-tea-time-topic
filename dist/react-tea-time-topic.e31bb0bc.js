@@ -29918,15 +29918,12 @@ function FormInput({
     console.log("submitted");
   };
 
-  const [title, setTitle] = (0, _react.useState)("");
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    placeholder: "Wrirte your topic idea here" //   onChange={((e) => setTitle(e.target.value))}
-    ,
-    name: "title" //   value={title}
-
+    placeholder: "Wrirte your topic idea here",
+    name: "title"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
     className: "submit-btn"

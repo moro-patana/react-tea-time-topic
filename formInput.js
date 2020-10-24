@@ -17,8 +17,6 @@ function FormInput({topics, setTopics}) {
         setTopics([...topics])
         console.log("submitted");
     }
-    
-    const [title, setTitle] = useState("")
 
     return (
             <div>
@@ -26,9 +24,7 @@ function FormInput({topics, setTopics}) {
                     <input 
                       type="text" 
                       placeholder="Wrirte your topic idea here"
-                    //   onChange={((e) => setTitle(e.target.value))}
                       name="title"
-                    //   value={title}
                     />
                     <button 
                      type="submit" className="submit-btn">
