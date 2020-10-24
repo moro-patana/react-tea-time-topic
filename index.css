@@ -13,12 +13,11 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
-.archieve {
-    width: 100px;
-    height: 30px;
+.archieve,
+.delete {
     border: none;
     border-radius: 10px;
-    background-color: white;
+    background-color: transparent;
 }
 .vote {
     display: flex;
@@ -47,4 +46,12 @@ input {
     border: none;
     border-radius: 15px;
     background-color: orange;
+}
+.icon {
+    width: 40px;
+}
+.btn {
+    border: none;
+    border-radius: 50%;
+    background-color: white;
 }
