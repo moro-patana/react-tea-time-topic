@@ -29841,7 +29841,7 @@ function TopicList({
   }, /*#__PURE__*/_react.default.createElement("img", {
     className: "icon",
     src: _unvoteIcon.default
-  })))));
+  })))), topic.discussedOn ? /*#__PURE__*/_react.default.createElement("p", null, topic.discussedOn) : "");
 }
 
 var _default = TopicList;
