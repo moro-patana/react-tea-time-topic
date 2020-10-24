@@ -29772,7 +29772,13 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"TopicList.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"img/archieve-icon.svg":[function(require,module,exports) {
+module.exports = "/archieve-icon.76163300.svg";
+},{}],"img/vote-icon.svg":[function(require,module,exports) {
+module.exports = "/vote-icon.643ea009.svg";
+},{}],"img/unvote-icon.svg":[function(require,module,exports) {
+module.exports = "/unvote-icon.283acd87.svg";
+},{}],"TopicList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29781,6 +29787,14 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _archieveIcon = _interopRequireDefault(require("./img/archieve-icon.svg"));
+
+var _voteIcon = _interopRequireDefault(require("./img/vote-icon.svg"));
+
+var _unvoteIcon = _interopRequireDefault(require("./img/unvote-icon.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -29797,22 +29811,28 @@ function TopicList({
     className: "article"
   }, /*#__PURE__*/_react.default.createElement("p", null, topic.title), /*#__PURE__*/_react.default.createElement("button", {
     className: "archieve"
-  }, "Archieve")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _archieveIcon.default
+  }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "vote"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "upvote"
   }, /*#__PURE__*/_react.default.createElement("p", null, topic.upvotes), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setUpvotedCount(upvotedCount + 1)
-  }, "+")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _voteIcon.default
+  }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "count-vote"
   }, /*#__PURE__*/_react.default.createElement("p", null, topic.downvotes), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setDownvotedCount(downvotedCount + 1)
-  }, "+"))));
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _unvoteIcon.default
+  })))));
 }
 
 var _default = TopicList;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"formInput.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./img/archieve-icon.svg":"img/archieve-icon.svg","./img/vote-icon.svg":"img/vote-icon.svg","./img/unvote-icon.svg":"img/unvote-icon.svg"}],"formInput.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
