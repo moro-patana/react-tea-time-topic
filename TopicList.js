@@ -6,8 +6,8 @@ import deleteIcon from "./img/delete-icon.svg"
 
 
 function TopicList({ topic }) {
-    const [upvotedCount, setUpvotedCount] = useState([topic.upvotes])
-    const [downvotedCount, setDownvotedCount] = useState(0)
+        const [upvotedCount, setUpvotedCount] = useState(topic.upvotes)
+    const [downvotedCount, setDownvotedCount] = useState(topic.downvotes)
     return (
          <div className="container">
              <div className="article">
@@ -19,11 +19,11 @@ function TopicList({ topic }) {
             </div>
             <div className="vote">
                 <div className="upvote">
-                    <p>{topic.upvotes}</p>
+                    <p>{upvotedCount}</p>
                     <button className="btn vote-btn" onClick={() => setUpvotedCount(upvotedCount + 1)}><img className="icon" src={voteIcon}/></button>
                 </div>
                 <div className="count-vote">
-                    <p>{topic.downvotes}</p>
+                    <p>{downvotedCount}</p>
                     <button className="btn unvote-btn" onClick={() => setDownvotedCount(downvotedCount + 1)}><img className="icon" src={unvoteIcon}/></button>
                 </div>
             </div>

@@ -29807,8 +29807,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function TopicList({
   topic
 }) {
-  const [upvotedCount, setUpvotedCount] = (0, _react.useState)([topic.upvotes]);
-  const [downvotedCount, setDownvotedCount] = (0, _react.useState)(0);
+  const [upvotedCount, setUpvotedCount] = (0, _react.useState)(topic.upvotes);
+  const [downvotedCount, setDownvotedCount] = (0, _react.useState)(topic.downvotes);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -29827,7 +29827,7 @@ function TopicList({
     className: "vote"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "upvote"
-  }, /*#__PURE__*/_react.default.createElement("p", null, topic.upvotes), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, upvotedCount), /*#__PURE__*/_react.default.createElement("button", {
     className: "btn vote-btn",
     onClick: () => setUpvotedCount(upvotedCount + 1)
   }, /*#__PURE__*/_react.default.createElement("img", {
@@ -29835,7 +29835,7 @@ function TopicList({
     src: _voteIcon.default
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "count-vote"
-  }, /*#__PURE__*/_react.default.createElement("p", null, topic.downvotes), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, downvotedCount), /*#__PURE__*/_react.default.createElement("button", {
     className: "btn unvote-btn",
     onClick: () => setDownvotedCount(downvotedCount + 1)
   }, /*#__PURE__*/_react.default.createElement("img", {
