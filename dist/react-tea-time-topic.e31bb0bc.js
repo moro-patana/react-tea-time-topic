@@ -29774,7 +29774,7 @@ if ("development" === 'production') {
 }
 },{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"img/delete-icon.svg":[function(require,module,exports) {
 module.exports = "/delete-icon.c464f2e5.svg";
-},{}],"discussedTopic.js":[function(require,module,exports) {
+},{}],"components/discussedTopic.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29784,7 +29784,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _deleteIcon = _interopRequireDefault(require("./img/delete-icon.svg"));
+var _deleteIcon = _interopRequireDefault(require("../img/delete-icon.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29810,13 +29810,13 @@ function DiscussedTopics({
 
 var _default = DiscussedTopics;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./img/delete-icon.svg":"img/delete-icon.svg"}],"img/archieve-icon.svg":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../img/delete-icon.svg":"img/delete-icon.svg"}],"img/archieve-icon.svg":[function(require,module,exports) {
 module.exports = "/archieve-icon.76163300.svg";
 },{}],"img/vote-icon.svg":[function(require,module,exports) {
 module.exports = "/vote-icon.643ea009.svg";
 },{}],"img/unvote-icon.svg":[function(require,module,exports) {
 module.exports = "/unvote-icon.283acd87.svg";
-},{}],"undiscussedTopics.js":[function(require,module,exports) {
+},{}],"components/undiscussedTopics.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29826,11 +29826,11 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _archieveIcon = _interopRequireDefault(require("./img/archieve-icon.svg"));
+var _archieveIcon = _interopRequireDefault(require("../img/archieve-icon.svg"));
 
-var _voteIcon = _interopRequireDefault(require("./img/vote-icon.svg"));
+var _voteIcon = _interopRequireDefault(require("../img/vote-icon.svg"));
 
-var _unvoteIcon = _interopRequireDefault(require("./img/unvote-icon.svg"));
+var _unvoteIcon = _interopRequireDefault(require("../img/unvote-icon.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29877,7 +29877,7 @@ function UndiscussedTopics({
 
 var _default = UndiscussedTopics;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./img/archieve-icon.svg":"img/archieve-icon.svg","./img/vote-icon.svg":"img/vote-icon.svg","./img/unvote-icon.svg":"img/unvote-icon.svg"}],"formInput.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../img/archieve-icon.svg":"img/archieve-icon.svg","../img/vote-icon.svg":"img/vote-icon.svg","../img/unvote-icon.svg":"img/unvote-icon.svg"}],"components/formInput.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29885,21 +29885,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
-
-var _archieveIcon = _interopRequireDefault(require("./img/archieve-icon.svg"));
-
-var _voteIcon = _interopRequireDefault(require("./img/vote-icon.svg"));
-
-var _unvoteIcon = _interopRequireDefault(require("./img/unvote-icon.svg"));
-
-var _deleteIcon = _interopRequireDefault(require("./img/delete-icon.svg"));
+var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function FormInput({
   topics,
@@ -29915,7 +29903,6 @@ function FormInput({
     };
     topics.push(newTopic);
     setTopics([...topics]);
-    console.log("submitted");
   };
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", {
@@ -29932,7 +29919,7 @@ function FormInput({
 
 var _default = FormInput;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./img/archieve-icon.svg":"img/archieve-icon.svg","./img/vote-icon.svg":"img/vote-icon.svg","./img/unvote-icon.svg":"img/unvote-icon.svg","./img/delete-icon.svg":"img/delete-icon.svg"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"pages/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29942,11 +29929,11 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _discussedTopic = _interopRequireDefault(require("./discussedTopic.js"));
+var _discussedTopic = _interopRequireDefault(require("../components/discussedTopic"));
 
-var _undiscussedTopics = _interopRequireDefault(require("./undiscussedTopics.js"));
+var _undiscussedTopics = _interopRequireDefault(require("../components/undiscussedTopics.js"));
 
-var _formInput = _interopRequireDefault(require("./formInput.js"));
+var _formInput = _interopRequireDefault(require("../components/formInput.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30007,19 +29994,19 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./discussedTopic.js":"discussedTopic.js","./undiscussedTopics.js":"undiscussedTopics.js","./formInput.js":"formInput.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/discussedTopic":"components/discussedTopic.js","../components/undiscussedTopics.js":"components/undiscussedTopics.js","../components/formInput.js":"components/formInput.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _App = _interopRequireDefault(require("./App.js"));
+var _App = _interopRequireDefault(require("./pages/App.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./App.js":"App.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./pages/App.js":"pages/App.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -30047,7 +30034,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59670" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64547" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
